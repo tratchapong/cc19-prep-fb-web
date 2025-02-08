@@ -1,8 +1,9 @@
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router'
 import App from '../App'
+import Login from '../pages/Login'
 
 const guestRouter = createBrowserRouter([
-  { path : '/', element : <>Login Page</>},
+  { path : '/', element : <Login />},
   { path : '*', element : <Navigate to='/' />},
 ])
 
