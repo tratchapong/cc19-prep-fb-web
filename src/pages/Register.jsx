@@ -2,7 +2,10 @@ import React from "react";
 
 export default function Register() {
   return (
-    <form className="flex flex-col gap-3 p-4 pt-10">
+    <>
+    <div className="text-3xl text-center opacity-70">Create a new account</div>
+    <div className="divider my-1 opacity-60"></div>
+    <form className="flex flex-col gap-5 p-4 pt-3">
       <div className="flex gap-2">
         <input
           type="text"
@@ -35,5 +38,6 @@ export default function Register() {
       />
       <button className="btn btn-secondary text-xl text-white">Sign up</button>
     </form>
+    </>
   );
 }
