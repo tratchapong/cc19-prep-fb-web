@@ -1,8 +1,38 @@
-import React from "react";
+import {useState} from "react";
 import { FakebookTitle } from "../icons";
 import Register from "./Register";
+import useUserStore from "../stores/userStore";
+import { toast } from "react-toastify";
 
 export default function Login() {
+  const login = useUserStore( state => state.login  )
+	const token = useUserStore( state => state.token)
+	const [input, setInput] = useState({
+		identity: '',
+		password: ''
+	})
+	const hdlChange = e => {
+		setInput(prv => ({ ...prv, [e.target.name]: e.target.value }))
+	}
+
+  const hdlLogin = async e => {
+		try {
+			e.preventDefault()
+			// validation
+			if (!(input.identity.trim() && input.password.trim())) {
+				return toast.info('Please fill all input')
+			}
+			let data = await login(input)
+      // console.log(data)
+			toast.success(`Login successful, Welcome ${data.user.firstName}`)
+      
+		} catch (err) {
+			const errMsg = err.response?.data?.error || err.message
+			console.log(errMsg)
+			toast.error(errMsg, {position : 'top-center'})
+		}
+	}
+
   return (
     <>
       <div className="h-[700px] pt-20 pb-28 bg-[#f2f4f7]">
@@ -19,17 +49,23 @@ export default function Login() {
 
           <div className="flex flex-1">
             <div className="card bg-base-100 w-full h-[350px] shadow-xl mt-8">
-              <form>
+              <form onSubmit={hdlLogin}>
                 <div className="card-body gap-3 p-4">
                   <input
                     type="text"
                     placeholder="E-mail or Phone number"
                     className="input input-bordered w-full"
+                    name='identity'
+										value={input.identity}
+										onChange={hdlChange}
                   />
                   <input
                     type="password"
                     placeholder="Password"
                     className="input input-bordered w-full"
+                    name='password'
+										value={input.password}
+										onChange={hdlChange}
                   />
                   <button className="btn btn-primary text-xl">Log in</button>
                   <p className="opacity-70 text-center cursor-pointer flex-grow-0">
