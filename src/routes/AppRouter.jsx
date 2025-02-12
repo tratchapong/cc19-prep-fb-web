@@ -24,6 +24,6 @@ export default function AppRouter() {
   console.log('user :', user)
   const finalRouter = user ? userRouter : guestRouter
   return (
-    <RouterProvider router={finalRouter} />  
+    <RouterProvider key={user?.id} router={finalRouter} />  
   )
 }
