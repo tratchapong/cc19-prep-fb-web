@@ -6,8 +6,8 @@ export default function Avatar(props) {
 	return (
 		<div className="avatar items-center cursor-pointer">
 			<div {...restProps}>
-				<img src={imgSrc ?? defaultAvatar} />
-				{/* <img src={imgSrc ?  imgSrc : defaultAvatar } /> */}
+				{/* <img src={imgSrc ?? defaultAvatar} /> */}
+				<img src={imgSrc ?  imgSrc : defaultAvatar } />
 			</div>
 
 			{ menu && 
