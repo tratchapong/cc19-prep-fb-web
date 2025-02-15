@@ -14,7 +14,7 @@ import Avatar from "./Avatar";
 
 export default function Header() {
   return (
-    <header className="h-14 w-full px-3 flex justify-between shadow-lg bg-white">
+    <header className="h-14 w-full fixed top-0 z-10 px-3 flex justify-between shadow-lg bg-white">
       <div className="flex gap-2 items-center flex-1">
         <FakebookLogo className="w-12" />
         <label className="input input-bordered flex items-center gap-2 w-64 h-10 rounded-full">

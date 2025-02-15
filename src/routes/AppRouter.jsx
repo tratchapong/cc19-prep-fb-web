@@ -2,6 +2,9 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router'
 import useUserStore from '../stores/userStore'
 import App from '../App'
 import Login from '../pages/Login'
+import SidebarMenu from '../components/SidebarMenu'
+import PostContainer from '../components/PostContainer'
+import SidebarContact from '../components/SidebarContact'
 
 
 const guestRouter = createBrowserRouter([
@@ -12,7 +15,11 @@ const guestRouter = createBrowserRouter([
 const userRouter = createBrowserRouter([
   { path : '/', element : <App />, 
     children : [
-      {index: true, element : <p>SidebarMenu, PostArea, SidebarContact</p>},
+      {index: true, element : <>
+        <SidebarMenu />
+        <PostContainer/>
+        <SidebarContact/>
+      </>},
       {path : 'friends', element: <>friends page</>},
       {path : '*', element: <Navigate to='/' /> }
     ]
