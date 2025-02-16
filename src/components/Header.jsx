@@ -11,8 +11,13 @@ import {
   SearchIcon,
 } from "../icons";
 import Avatar from "./Avatar";
+import useUserStore from "../stores/userStore";
 
 export default function Header() {
+  const logout = useUserStore((state) => state.logout);
+  const user = useUserStore((state) => state.user);
+  // console.log(user)
+
   return (
     <header className="h-14 w-full fixed top-0 z-10 px-3 flex justify-between shadow-lg bg-white">
       <div className="flex gap-2 items-center flex-1">
@@ -66,10 +71,11 @@ export default function Header() {
 
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn m-1">
-          <Avatar
-							className="w-11 h-11 rounded-full bg-slate-400"
-							menu={true}
-						/>
+            <Avatar
+              className="w-11 h-11 rounded-full bg-slate-400"
+              imgSrc={user.profileImage}
+              menu={true}
+            />
           </div>
           <ul
             tabIndex={0}
@@ -79,7 +85,7 @@ export default function Header() {
               <a>Profile</a>
             </li>
             <div className="divider my-0"></div>
-            <li>
+            <li onClick={logout}>
               <a>Logout</a>
             </li>
           </ul>
