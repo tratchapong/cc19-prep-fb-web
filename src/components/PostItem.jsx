@@ -2,10 +2,11 @@ import React from "react";
 import Avatar from "./Avatar";
 import { CloseIcon, CommentIcon, LikeIcon, ShareIcon, ThreeDotIcon } from "../icons";
 import postPic from "../assets/post-pic.jpg";
+import CommentContainer from "./CommentContainer";
 
 export default function PostItem() {
   return (
-    <div className="card bg-base-100 shadow-xl">
+    <div className="card bg-base-100 shadow-xl pb-2">
       <div className="card-body p-3">
         <div className="flex justify-between">
           <div className="flex gap-3">
@@ -79,7 +80,7 @@ export default function PostItem() {
 					</div>
 				</div>
       <div className="divider h-0 my-0"></div>
-      <p>Comment Area </p>
+        <CommentContainer />
 
     </div>
   );

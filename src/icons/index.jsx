@@ -427,3 +427,23 @@ export function ShareIcon(props) {
     </svg>
   )
 }
+
+export function SendMessageIcon(props) {
+  return (
+    <svg
+      viewBox="-0.5 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <g
+        stroke="#000"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M2.33 8.39C.25 11.82 9.42 14.9 9.42 14.9s3.08 9.17 6.51 7.09c3.64-2.22 8-15.86 5.12-18.72C18.17.41 4.55 4.75 2.33 8.39zM15.2 9.12L9.42 14.9" />
+      </g>
+    </svg>
+  )
+}
