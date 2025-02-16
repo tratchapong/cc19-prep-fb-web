@@ -28,7 +28,7 @@ const userRouter = createBrowserRouter([
 
 export default function AppRouter() {
   const user =  useUserStore(state => state.user)
-  console.log('user :', user)
+  // console.log('user :', user)
   const finalRouter = user ? userRouter : guestRouter
   return (
     <RouterProvider key={user?.id} router={finalRouter} />  
