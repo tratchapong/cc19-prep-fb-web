@@ -6,7 +6,7 @@ import CommentContainer from "./CommentContainer";
 
 export default function PostItem() {
   return (
-    <div className="card bg-base-100 shadow-xl pb-2">
+    <div className="card bg-base-100 shadow-xl p-1 pb-2">
       <div className="card-body p-3">
         <div className="flex justify-between">
           <div className="flex gap-3">
