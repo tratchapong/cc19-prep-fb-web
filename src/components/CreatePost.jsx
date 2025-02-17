@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ActivityIcon, PhotoIcon, VideoIcon } from "../icons";
+import { ActivityIcon, CloseIcon, PhotoIcon, VideoIcon } from "../icons";
 import Avatar from "./Avatar";
 import PostForm from "./PostForm";
 import useUserStore from '../stores/userStore'
@@ -43,9 +43,9 @@ export default function CreatePost() {
 				<div className="modal-box">
 					<button
 						type="button"
-						className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+						className="btn btn-sm btn-circle  absolute right-2 top-2"
 						onClick={e => e.target.closest('dialog').close()}
-					>x</button>
+					> <CloseIcon className='w-7 rounded-full' /> </button>
 					{isOpen && <PostForm />}
 				</div>
 			</dialog>
